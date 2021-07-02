@@ -1,6 +1,29 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_print_comb.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: emoliner <emoliner@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/07/02 09:59:56 by emoliner          #+#    #+#             */
+/*   Updated: 2021/07/02 10:36:20 by emoliner         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/*PARA COMPILAR DIRECTAMENTE EL ARCHIVO Y COMPROBAR SI ESTÁ CORRECTO*/
+/* PUEDES QUITAR LOS COMENTARIOS DE LAS SIGUIENTES LÍNEAS*/
+
 #include <stdio.h>
 #include <unistd.h>
 
+/*void	ft_print_comb(void);
+
+int	main(void)
+{
+	ft_print_comb();
+	return (0);
+}
+*/
 void	ft_print_comb(void)
 {
 	char	a;
@@ -8,13 +31,13 @@ void	ft_print_comb(void)
 	char	c;
 
 	a = '0' - 1;
-	while (++a <= '9')
+	while (a++ <= '9')
 	{
 		b = a;
-		while (++b <= '9')
+		while (b++ <= '9')
 		{
 			c = b;
-			while (++c <= '9')
+			while (c++ <= '9')
 			{
 				write(1, &a, 1);
 				write(1, &b, 1);
