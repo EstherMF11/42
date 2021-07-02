@@ -5,10 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: emoliner <emoliner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/02 08:54:54 by emoliner          #+#    #+#             */
-/*   Updated: 2021/07/02 08:58:53 by emoliner         ###   ########.fr       */
+/*   Created: 2021/07/02 09:32:37 by emoliner          #+#    #+#             */
+/*   Updated: 2021/07/02 11:44:43 by emoliner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*PARA COMPILAR DIRECTAMENTE EL ARCHIVO Y COMPROBAR SI ESTÁ CORRECTO*/
+/* PUEDES QUITAR LOS COMENTARIOS DE LAS SIGUIENTES LÍNEAS*/
 
 /*#include <stdio.h>
 
@@ -50,7 +53,6 @@ void	ft_sort_int_tab(int *tab, int size)
 			swap = tab[i];
 			tab[i] = tab[i + 1];
 			tab[i + 1] = swap;
-			i = 0;
 		}
 		else
 			i++;

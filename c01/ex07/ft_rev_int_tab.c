@@ -6,9 +6,12 @@
 /*   By: emoliner <emoliner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 07:38:01 by emoliner          #+#    #+#             */
-/*   Updated: 2021/07/02 07:53:48 by emoliner         ###   ########.fr       */
+/*   Updated: 2021/07/02 11:40:26 by emoliner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*PARA COMPILAR DIRECTAMENTE EL ARCHIVO Y COMPROBAR SI ESTÁ CORRECTO*/
+/* PUEDES QUITAR LOS COMENTARIOS DE LAS SIGUIENTES LÍNEAS*/
 
 /*#include <stdio.h>
 
