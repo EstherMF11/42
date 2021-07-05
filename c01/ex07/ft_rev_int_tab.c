@@ -6,7 +6,7 @@
 /*   By: emoliner <emoliner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 07:38:01 by emoliner          #+#    #+#             */
-/*   Updated: 2021/07/02 11:40:26 by emoliner         ###   ########.fr       */
+/*   Updated: 2021/07/05 08:53:40 by emoliner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_rev_int_tab(int *tab, int size);
 
 int	main(void)
 {
-	int	tab[] = {1, 2, 9, 3};
+	int	tab[] = {4, 2, 9, 3};
 	int	j;
 	int	size;
 
@@ -28,8 +28,7 @@ int	main(void)
 	for (j = 0; j < size; j++)
 		printf("%d ", tab[j]);
 	return (0);
-}
-*/
+}*/
 
 void	ft_rev_int_tab(int *tab, int size)
 {

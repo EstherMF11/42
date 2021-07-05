@@ -6,7 +6,7 @@
 /*   By: emoliner <emoliner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 18:48:53 by emoliner          #+#    #+#             */
-/*   Updated: 2021/07/02 11:40:24 by emoliner         ###   ########.fr       */
+/*   Updated: 2021/07/05 08:01:56 by emoliner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int	main(void)
 
 	ft_strlen(str);
 	printf("%d", ft_strlen(str));
-}
-*/
+}*/
+
 int	ft_strlen(char *str)
 {
 	int	i;

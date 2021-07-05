@@ -6,16 +6,16 @@
 /*   By: emoliner <emoliner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 18:49:53 by emoliner          #+#    #+#             */
-/*   Updated: 2021/07/02 11:40:13 by emoliner         ###   ########.fr       */
+/*   Updated: 2021/07/05 07:56:32 by emoliner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*PARA COMPILAR DIRECTAMENTE EL ARCHIVO Y COMPROBAR SI ESTÁ CORRECTO*/
 /* PUEDES QUITAR LOS COMENTARIOS DE LAS SIGUIENTES LÍNEAS*/
 
-/*#include <stdio.h>
+#include <stdio.h>
 
-void	ft_ultimate_ft(int *********nbr);
+/*void	ft_ultimate_ft(int *********nbr);
 
 int	main(void)
 {
@@ -43,8 +43,8 @@ int	main(void)
 	ft_ultimate_ft(ptr9);
 	printf("Valor: %d", ptr);
 	return (0);
-}
-*/
+}*/
+
 void	ft_ultimate_ft(int *********nbr)
 {
 	*********nbr = 42;

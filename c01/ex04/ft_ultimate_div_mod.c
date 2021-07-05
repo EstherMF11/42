@@ -6,16 +6,16 @@
 /*   By: emoliner <emoliner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 18:50:09 by emoliner          #+#    #+#             */
-/*   Updated: 2021/07/02 11:40:19 by emoliner         ###   ########.fr       */
+/*   Updated: 2021/07/05 08:00:00 by emoliner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*PARA COMPILAR DIRECTAMENTE EL ARCHIVO Y COMPROBAR SI ESTÁ CORRECTO*/
 /* PUEDES QUITAR LOS COMENTARIOS DE LAS SIGUIENTES LÍNEAS*/
 
-/*#include <stdio.h>
+#include <stdio.h>
 
-void	ft_ultimate_div_mod(int *a, int *b);
+/*void	ft_ultimate_div_mod(int *a, int *b);
 
 int	main(void)
 {
@@ -30,8 +30,8 @@ int	main(void)
 	b = d;
 	ft_ultimate_div_mod(&a, &b);
 	printf("%d / %d = %d, mod = %d", c, d, a, b);
-}
-*/
+}*/
+
 void	ft_ultimate_div_mod(int *a, int *b)
 {
 	int		div;

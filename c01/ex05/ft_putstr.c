@@ -6,7 +6,7 @@
 /*   By: emoliner <emoliner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 18:50:14 by emoliner          #+#    #+#             */
-/*   Updated: 2021/07/02 11:40:21 by emoliner         ###   ########.fr       */
+/*   Updated: 2021/07/05 08:00:55 by emoliner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int	main(void)
 
 	ft_putstr(str);
 	return (0);
-}
-*/
+}*/
+
 void	ft_putstr(char *str)
 {
 	int	i;
