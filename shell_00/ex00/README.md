@@ -1,0 +1,2 @@
+Solución:
+echo 'Z'  > z
