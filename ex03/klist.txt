@@ -1,5 +1,0 @@
-Credentials cache: API:5755
-        Principal: emoliner@42MADRID.COM
-
-  Issued                Expires             Flags    Principal
-Jun 24 08:48:58 2021  Jun 24 18:48:52 2021  FPIA   krbtgt/42MADRID.COM@42MADRID.COM
