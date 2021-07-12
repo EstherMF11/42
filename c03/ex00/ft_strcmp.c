@@ -6,14 +6,14 @@
 /*   By: emoliner <emoliner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 08:55:51 by emoliner          #+#    #+#             */
-/*   Updated: 2021/07/08 16:27:54 by emoliner         ###   ########.fr       */
+/*   Updated: 2021/07/12 06:34:10 by emoliner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* strcmp(): compares two strings character by character. If the strings 
 			 are equal, the function returns 0.*/
 
-#include <stdio.h>
+/*#include <stdio.h>
 #include <string.h>
 
 int	ft_strcmp(char *s1, char *s2);
@@ -41,7 +41,7 @@ int main() {
   	printf("strcmp(abcd, abcd) = %d\n", result);
 
   return 0;
-}
+}*/
 
 int	ft_strcmp(char *s1, char *s2)
 {

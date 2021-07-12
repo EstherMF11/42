@@ -6,20 +6,20 @@
 /*   By: emoliner <emoliner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 13:45:17 by emoliner          #+#    #+#             */
-/*   Updated: 2021/07/08 16:27:47 by emoliner         ###   ########.fr       */
+/*   Updated: 2021/07/12 06:34:03 by emoliner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* strcat(): appends the string pointed to by src to the end of
 			 the string pointed to by dest.*/
 
-#include <stdio.h>
+/*#include <stdio.h>
 #include <string.h>
 
 char	*ft_strcat(char *dest, char *src);
 
 int main () {
-	char src[50];
+	char 	src[50];
 	char	dest[50];
 
 	strcpy(src,  "This is source");
@@ -34,7 +34,7 @@ int main () {
 	printf("Final destination string : |%s|\n", dest);
 
 	return(0);
-}
+}*/
 
 char	*ft_strcat(char *dest, char *src)
 {

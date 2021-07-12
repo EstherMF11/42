@@ -6,7 +6,7 @@
 /*   By: emoliner <emoliner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 13:45:11 by emoliner          #+#    #+#             */
-/*   Updated: 2021/07/08 16:27:43 by emoliner         ###   ########.fr       */
+/*   Updated: 2021/07/12 06:33:59 by emoliner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 			  the string pointed to by src to the end of the string pointed to 
 			  by dest plus a terminating Null-character.*/
 
-#include <stdio.h>
+/*#include <stdio.h>
 #include <string.h>
 
 char	*ft_strncat(char *dest, char *src, unsigned int nb);
@@ -39,7 +39,7 @@ int main()
 	printf("Destination string : %s", dest);
 
 	return 0;
-}
+}*/
 
 char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {

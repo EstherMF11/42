@@ -6,31 +6,28 @@
 /*   By: emoliner <emoliner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 13:45:04 by emoliner          #+#    #+#             */
-/*   Updated: 2021/07/08 16:27:41 by emoliner         ###   ########.fr       */
+/*   Updated: 2021/07/12 06:33:56 by emoliner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*The strstr(): function locates the first occurrence of the null-terminate*/
 
-#include <stdio.h>
-#include <string.h>
+/*#include <stdio.h>
 
-int main () {
-	const char haystack[20] = "TutorialsPoint";
-	const char needle[10] = "tori";
+char	*ft_strstr(char *str, char *to_find);
+
+int main () 
+{
+	const char str[] = "Hello World!";
+	const char to_find[] = "World";
 	char *ret;
 
-	ret = strstr(haystack, needle);
-	printf("Real function: \n");
-	printf("The substring is: %s\n", ret);
-	printf("--------------------------------\n");
-
-	ret = strstr(haystack, needle);
+	ret = ft_strstr(str, to_find);
 	printf("Own function: \n");
 	printf("The substring is: %s\n", ret);
 
 	return(0);
-	}
+}*/
 
 char	*ft_strstr(char *str, char *to_find)
 {
@@ -43,11 +40,16 @@ char	*ft_strstr(char *str, char *to_find)
 	while (str[i] != '\0')
 	{
 		j = 0;
-		while (str[i] == to_find[j])
+		if (str[i + j] == to_find[j])
 		{
-			j++;
-			return (&str[i]);
+			while (str[i + j] == to_find[j])
+			{
+				j++;
+				if (to_find[j] == '\0')
+					return (&str[i]);
+			}
 		}
+		j = 0;
 		i++;
 	}
 	return (0);

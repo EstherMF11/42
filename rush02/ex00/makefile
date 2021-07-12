@@ -1,8 +1,8 @@
-SRCS	= main.c basic_dict.c find_key.c ft_itoa.c ft_atoi.c
+SRCS	= main.c basic_dict.c find_key.c ft_itoa.c ft_atoi.c  #Nombre de los ficheros que queremos compilar
 
-OBJS	= ${SRCS:.c=.o}
+OBJS	= ${SRCS:.c=.o} #Transforma todos los archivos .c en .o
 
-NAME	= rush-02
+NAME	= rush-02 #Nombre de nuestro transformable
 
 CC		= cc
 RM		= rm -f
