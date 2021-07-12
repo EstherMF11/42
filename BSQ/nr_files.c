@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+/*Extraemos el numeo de filas: Nos lo dan siempre en el "example_file"*/
 int nr_row(char *buf)
 {
 	int row;
@@ -13,6 +14,8 @@ int nr_row(char *buf)
 	return (row);
 }
 
+/*Extraemos el numeo de columnas: Contamos los caracteres hasta que haya un salto de línea.
+Empezamos en [col + 5] porque lo primero que nos dan son nºlineas char_vacio char_obstaculo char_relleno*/
 int nr_col(char *buf)
 {
 	int	col;
@@ -25,6 +28,7 @@ int nr_col(char *buf)
 	return (col);
 }
 
+/*Extraemos el caracter "vacio" que nos pongan en el example_file*/
 char	get_emptier(char *buf)
 {
 	char emptier;
@@ -33,6 +37,7 @@ char	get_emptier(char *buf)
 	return (emptier);
 }
 
+/*Extraemos el caracter "obstaculo" que nos pongan en el example_file*/
 char	get_blocker(char *buf)
 {
 	char blocker;
@@ -41,6 +46,7 @@ char	get_blocker(char *buf)
 	return (blocker);
 }
 
+/*Extraemos el caracter "relleno" que nos pongan en el example_file*/
 char	get_filler(char *buf)
 {
 	char filler;

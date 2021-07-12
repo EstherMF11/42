@@ -11,7 +11,7 @@ char	get_filler(char *buf);
 int blockers_count(char *buf, char blocker, int row, int col);
 void print_matrix(int col, int row, char emptier);
 
-
+/*Abrimos y leemos el archivo*/
 void	open_file(char **argv)
 {
 	int	fd;
@@ -23,26 +23,26 @@ void	open_file(char **argv)
 	char blocker;
 	char filler;
 
-	fd = open(argv[1], O_RDONLY);
+	fd = open(argv[1], O_RDONLY); //Abrimos el archivo con permiso solo lectura
 	if (fd == -1)
 	{
 		write(1, "Error opening file\n", 19);
 	}
 	else
 	{
-		nr_bytes = sizeof(buf);
-		read(fd, buf, nr_bytes);
-		close(fd);
+		nr_bytes = sizeof(buf); 
+		read(fd, buf, nr_bytes); //Leemos el archivo con un número de bytes asignado por nosotros
+		close(fd); //Cerramos el archivo
 
 		if (nr_bytes == 0)
 			write(1, "Empty file\n", 11);
 		else
 		{
-			row = nr_row(buf);
-			col = nr_col(buf);
-			emptier = get_emptier(buf);
-			blocker = get_blocker(buf);
-			filler = get_filler(buf);
+			row = nr_row(buf); //Numero de filas
+			col = nr_col(buf); //Numero de columnas
+			emptier = get_emptier(buf); //Caracter "vacio" 
+			blocker = get_blocker(buf); //Caracter "obstaculo"
+			filler = get_filler(buf); //Caracter "relleno"
 			printf("OPEN AND READ FILE:\n");
 			printf("Bytes number: %d - Content:\n%s\n", nr_bytes, buf);
 			printf("---------------------------------\n");
@@ -54,8 +54,8 @@ void	open_file(char **argv)
 			printf("Filler char: %c\n", filler);
 			printf("---------------------------------\n");
 			printf("MATRIX:\n");
-			blockers_count(buf, blocker, row, col);
-			print_matrix(col, row, emptier);
+			blockers_count(buf, blocker, row, col); //Contador de caracteres obstaculo
+			print_matrix(col, row, emptier); //Printeamos la matriz rowxcol
 		}
 	}
 }

@@ -6,6 +6,7 @@ void ft_putchar(char c)
 	write(1, &c, 1);
 }
 
+/*Contador de numero de caracteres obstaculo que tenemos*/
 int blockers_count(char *buf, char blocker, int row, int col)
 {
 	int c;
@@ -30,6 +31,8 @@ int blockers_count(char *buf, char blocker, int row, int col)
 	return (c_b);
 }
 
+
+/*Printeamos la matriz utilizando el numero de col, row y caracteres que nos ponen en el example_file*/
 void print_matrix(int col, int row, char emptier)
 {
 	int		xtc;
