@@ -6,7 +6,7 @@
 /*   By: emoliner <emoliner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 13:45:35 by emoliner          #+#    #+#             */
-/*   Updated: 2021/07/13 10:48:33 by emoliner         ###   ########.fr       */
+/*   Updated: 2021/07/13 09:55:00 by emoliner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ int	ft_strncmp(char *s1, char *s2, unsigned int n);
 int main () 
 {
 	char str1[] = "aaaaa";
-	char str2[] = "aaasa";
+	char str2[] = "aaaaa";
 	int ret;
 
-	ret = ft_strncmp(str1, str2, 3);
+	ret = ft_strncmp(str1, str2, 2);
 	printf("s1 - s2 = %d\n", ret);
 	if(ret < 0)
 	{
@@ -44,13 +44,15 @@ int main ()
 
 int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	while (n && *s1 && (*s1 == *s2))
+	unsigned int	i;
+
+	i = 0;
+	while ((s1[i] && s2[i]) && (n - 1))
 	{
-		++s1;
-		++s2;
-		--n;
+		if (s1[i] != s2[i])
+			break ;
+		i++;
+		n--;
 	}
-	if (n == 0)
-		return (0);
-	return ((unsigned char)(*s1) - (unsigned char)(*s2));
+	return ((unsigned char)(s1[i]) - (unsigned char)s2[i]);
 }

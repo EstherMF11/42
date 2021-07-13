@@ -6,7 +6,7 @@
 /*   By: emoliner <emoliner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 08:55:51 by emoliner          #+#    #+#             */
-/*   Updated: 2021/07/13 10:32:15 by emoliner         ###   ########.fr       */
+/*   Updated: 2021/07/13 09:53:59 by emoliner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,6 @@ int main() {
   char	str2[] = "abCd";
   char	str3[] = "abcd";
   int result;
-  char	str4[] = "abcd";
-  char	str5[] = "abCd";
-  char	str6[] = "abcd";
-  int result1;
 
 	// Real function
 	result = strcmp(str1, str2);
@@ -38,11 +34,11 @@ int main() {
 	printf("-------------\n");
 	// Own Function
 	printf("Own function:\n");
-	result1 = strcmp(str4, str5);
-  	printf("strcmp(abcd, abCd) = %d\n", result1);
+	result = strcmp(str1, str2);
+  	printf("strcmp(abcd, abCd) = %d\n", result);
 
-	result1 = ft_strcmp(str4, str6);
-  	printf("strcmp(abcd, abcd) = %d\n", result1);
+	result = ft_strcmp(str1, str3);
+  	printf("strcmp(abcd, abcd) = %d\n", result);
 
   return 0;
 }*/
@@ -56,5 +52,5 @@ int	ft_strcmp(char *s1, char *s2)
 	{
 		i++;
 	}
-	return (s1[i] - s2[i]);
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }

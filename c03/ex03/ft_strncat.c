@@ -6,7 +6,7 @@
 /*   By: emoliner <emoliner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 13:45:11 by emoliner          #+#    #+#             */
-/*   Updated: 2021/07/13 10:32:22 by emoliner         ###   ########.fr       */
+/*   Updated: 2021/07/10 08:00:32 by emoliner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ int main()
 	// Take any two strings
 	char src[50] = "efghijkl";
 	char dest[50]= "abcd";
-	char src1[50] = "efghijkl";
-	char dest1[50]= "abcd";
 
 	// Appends 5 character from src to dest
 	printf("Real Function:\n");
@@ -36,9 +34,9 @@ int main()
 
 	printf("------------\n");
 	printf("OwnFunction:\n");
-	ft_strncat(dest1, src1, 5);
-	printf("Source string : %s\n", src1);
-	printf("Destination string : %s", dest1);
+	ft_strncat(dest, src, 5);
+	printf("Source string : %s\n", src);
+	printf("Destination string : %s", dest);
 
 	return 0;
 }*/
@@ -56,7 +54,6 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb)
 	{
 		dest[i] = src[a];
 		a++;
-		i++;
 	}
 	dest[i] = '\0';
 	return (dest);

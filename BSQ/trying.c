@@ -22,12 +22,17 @@ struct s_noseganaperosegosa
 int	main(int	argc, char **argv)
 {
 	if (argc < 2) //mínimo dos argumentos
-		write(1, "Erorr\n", 6);
+		write(1, "Reading Erorr\n", 6);
 	else
 	{
 		open_file(argv);
 	}
 	return (0);
+}
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
 }
 
 int	numb_bytes(char **argv)
@@ -75,9 +80,13 @@ int	len_first_line(char *buf)
 	int	len;
 
 	len = 0;
-	while (buf[len])
+	while (buf[len] != '\n')
+	{
 		len++;
-	return(len);
+		if (buf[len] == '\n')
+			return(len);
+	}
+	return (0);
 }
 
 char	get_emptier(char *buf, struct s_noseganaperosegosa keys)
@@ -119,7 +128,9 @@ struct s_noseganaperosegosa	get_blocker_cord(char *buf, struct s_noseganaperoseg
 			c_b++;
 			keys.blocker_coord[c_b][0] = c_c; //coordenadas en col
 			keys.blocker_coord[c_b][1] = c_r; //coordenadas en row
+			printf("--- %d %d -----\n", keys.blocker_coord[i][0], printf("%d\n", keys.blocker_coord[i][1]));
 		}
+		i++;
 	}
 	return (keys);
 }
@@ -152,11 +163,43 @@ struct s_noseganaperosegosa get_structure(char *buf, struct s_noseganaperosegosa
 		i++;
 	}
 	keys = get_blocker_cord(buf, keys); //Llamo a mi estructura para completarla
-
 	return (keys);
 }
 
+void print_matrix(struct s_noseganaperosegosa keys)
+{
+	int x_Count;
+	int y_Count;
+	int	i;
 
+	x_Count = 0;
+	y_Count = 0;
+	i = 0;
+	printf("Column: %d\nRow: %d\nEmptier: %c\nBlocker: %c\nFiller: %c ",
+		keys.col, keys.row, keys.emptier, keys.blocker, keys.filler);
+	while (i < keys.blocker_count)
+	{
+		while (x_Count < keys.row)
+		{
+			while (y_Count < keys.col)
+			{
+				if (x_Count == keys.blocker_coord[i][0] &&
+					y_Count + 1 == keys.blocker_coord[i][1])
+				{
+					ft_putchar(keys.blocker);
+					i++;
+				}
+				else
+					ft_putchar(keys.emptier);
+				y_Count++;
+			}
+			y_Count = 0;
+			x_Count++;
+			ft_putchar('\n');
+		}
+		i++;
+	}
+}
 
 /*Abrimos y leemos el archivo*/
 void	open_file(char **argv)
@@ -175,18 +218,13 @@ void	open_file(char **argv)
 		write(1, "Empty file\n", 11);
 	else
 	{
-		get_structure(buf, keys); //Creamos la estructura 
-		print_matrix(keys);
+		printf("OPEN AND READ FILE:\n");
+		printf("Bytes number: %d - Content:\n%s\n", nr_bytes, buf);
+		printf("---------------------------------\n");
+		printf("EXTRACTED INFO FROM EXAMPLE_FILE:\n");
+		printf("MATRIX\n");
+		print_matrix(get_structure(buf, keys)); //Creamos la estructura
 	}
 	close(fd); //Cerramos el archivo
 
-}
-
-void print_matrix(struct s_noseganaperosegosa keys)
-{
-	int x_Count;
-	int y_Count;
-
-	x_Count = 0;
-	y_Count = 0;
 }

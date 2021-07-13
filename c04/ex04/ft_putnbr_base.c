@@ -51,7 +51,7 @@ void ft_putnbr(int nbr, char *base)
 		digito = nbr % base_int;
 		nbr = nbr / base_int;
 		if (nbr < base_int)
-			printf("Digito %d\n", nbr);
+		printf("Digito %d\n", nbr);
 		else
 		{
 			printf("nbr %d - base %s\n", nbr, base);
