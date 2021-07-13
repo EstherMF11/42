@@ -10,6 +10,18 @@ char	get_blocker(char *buf);
 char	get_filler(char *buf);
 int blockers_count(char *buf, char blocker, int row, int col);
 void print_matrix(int col, int row, char emptier);
+//void blocker_matrix(int col, int row, char *buf);
+
+/*struct s_noseganaperosegosa
+{
+	int	row;
+	int	col;
+	char emptier;
+	char blocker;
+	char filler;
+	int blocker_count;
+	char blocker_coord[200][200];
+}*/
 
 /*Abrimos y leemos el archivo*/
 void	open_file(char **argv)
@@ -17,6 +29,7 @@ void	open_file(char **argv)
 	int	fd;
 	int	nr_bytes;
 	char	buf[60000];
+	//struct s_noseganaperosegosa	keys;
 	int	row;
 	int col;
 	char emptier;
@@ -38,6 +51,7 @@ void	open_file(char **argv)
 			write(1, "Empty file\n", 11);
 		else
 		{
+
 			row = nr_row(buf); //Numero de filas
 			col = nr_col(buf); //Numero de columnas
 			emptier = get_emptier(buf); //Caracter "vacio" 
@@ -56,6 +70,7 @@ void	open_file(char **argv)
 			printf("MATRIX:\n");
 			blockers_count(buf, blocker, row, col); //Contador de caracteres obstaculo
 			print_matrix(col, row, emptier); //Printeamos la matriz rowxcol
+			//blocker_matrix(col, row, buf);
 		}
 	}
 }

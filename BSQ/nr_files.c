@@ -1,7 +1,6 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <stdlib.h>
-#include <stdio.h>
 
 /*Extraemos el numeo de filas: Nos lo dan siempre en el "example_file"*/
 int nr_row(char *buf)
