@@ -6,7 +6,7 @@
 /*   By: emoliner <emoliner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 13:45:08 by emoliner          #+#    #+#             */
-/*   Updated: 2021/07/12 06:33:52 by emoliner         ###   ########.fr       */
+/*   Updated: 2021/07/13 10:32:25 by emoliner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,26 @@
 
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size);
 
-int main () 
+int main()
 {
-	char 	src1[] = "42 Madrid";
-	char	dest1[] = "This is";
-	unsigned int	a;
-	unsigned int	b;
+	char n1[] = "6789";
+	char n2[] = "12345";
+	char msrc[10];
+	char mdest[50];
+	char src[10];
+	char dest[50];
+	int r1, r2;
 
-	a = ft_strlcat(dest1, src1,1);
-	printf("Final destination string : |%s|, %u\n", dest1, a);
-	b = strlcat(dest1, src1,1);
-	printf("Final destination string : |%s|, %u\n", dest1, b);
-	return(0);
+	strcpy(msrc, n1);
+	strcpy(mdest, n2);
+	strcpy(src, n1);
+	strcpy(dest, n2);
+	printf("--ORIGINAL FUNC--\nstr: '%s'\ndest: '%s'\n\n", msrc, mdest);
+	r1 = strlcat(mdest, msrc, 10);
+	printf("new str: '%s'\nnew dest: '%s'\nreturned: '%i'\n", msrc, mdest, r1);
+	printf("--REPLICATE FUNC--\nstr: '%s'\ndest: '%s'\n\n", src, dest);
+	r2 = ft_strlcat(dest, src, 10);
+	printf("new str: '%s'\nnew dest: '%s'\nreturned: '%i'\n", src, dest, r2);
 }*/
 
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)

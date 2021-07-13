@@ -6,7 +6,7 @@
 /*   By: emoliner <emoliner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 13:45:04 by emoliner          #+#    #+#             */
-/*   Updated: 2021/07/12 06:33:56 by emoliner         ###   ########.fr       */
+/*   Updated: 2021/07/13 10:32:24 by emoliner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,28 @@
 
 char	*ft_strstr(char *str, char *to_find);
 
-int main () 
+#include <stdio.h>
+#include <string.h>
+int main()
 {
-	const char str[] = "Hello World!";
-	const char to_find[] = "World";
-	char *ret;
+	char n2[] = "Text to search in.";
+	char n1[] = "rch";
+	char msrc[10];
+	char mdest[50];
+	char src[10];
+	char dest[50];
+	char *mres, *res;
 
-	ret = ft_strstr(str, to_find);
-	printf("Own function: \n");
-	printf("The substring is: %s\n", ret);
-
-	return(0);
+	strcpy(msrc, n1);
+	strcpy(mdest, n2);
+	strcpy(src, n1);
+	strcpy(dest, n2);
+	printf("--ORIGINAL FUNC--\nstr: '%s'\nto_find: '%s'\n\n", mdest, msrc);
+	mres = strstr(mdest, msrc);
+	printf("found: '%s'\n\n", mres);
+	printf("--REPLICATE FUNC--\nstr: '%s'\nto_find: '%s'\n\n", dest, src);
+	res = ft_strstr(dest, src);
+	printf("found: '%s'\n\n", res);
 }*/
 
 char	*ft_strstr(char *str, char *to_find)
