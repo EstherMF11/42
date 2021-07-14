@@ -5,18 +5,17 @@
 #include <fcntl.h>
 
 void	open_file(char **argv);
-int	ft_atoi(char *src);
 
 struct s_noseganaperosegosa
 {
-	int	row;
-	int	col;
-	int len_fl;
-	int blocker_count;
-	int blocker_coord[1000][2];
-	char emptier;
-	char blocker;
-	char filler;
+	int			row;
+	int			col;
+	int			len_fl;
+	int			blocker_count;
+	int			blocker_coord[1000][2];
+	char		emptier;
+	char		blocker;
+	char		filler;
 };
 
 int	main(int	argc, char **argv)
@@ -84,32 +83,32 @@ int	len_first_line(char *buf)
 	{
 		len++;
 		if (buf[len] == '\n')
-			return(len);
+			return (len);
 	}
 	return (0);
 }
 
 char	get_emptier(char *buf, struct s_noseganaperosegosa keys)
 {
-		return (buf[keys.len_fl - 3]);
+	return (buf[keys.len_fl - 3]);
 }
 
 char	get_blocker(char *buf, struct s_noseganaperosegosa keys)
 {
-		return (buf[keys.len_fl - 2]);
+	return (buf[keys.len_fl - 2]);
 }
 
 char	get_filler(char *buf, struct s_noseganaperosegosa keys)
 {
-		return (buf[keys.len_fl - 1]);
+	return (buf[keys.len_fl - 1]);
 }
 
 struct s_noseganaperosegosa	get_blocker_cord(char *buf, struct s_noseganaperosegosa keys)
 {
-	int i;
-	int c_r;
-	int c_c;
-	int	c_b;
+	int		i;
+	int		c_r;
+	int		c_c;
+	int		c_b;
 
 	c_r = 0;
 	c_c = 0;
@@ -118,18 +117,30 @@ struct s_noseganaperosegosa	get_blocker_cord(char *buf, struct s_noseganaperoseg
 	while (buf[i])
 	{	
 		if (buf[i] == '\n')
+		{
 			c_r++;
+		}
 		if (buf[i] != '\n')
+		{
 			c_c++;
+		}
 		if (buf[i + 1] == '\n')
+		{
 			c_c = 0;
+		}
 		if (buf[i] == keys.blocker)
-		{	
-			c_b++;
+		{
 			keys.blocker_coord[c_b][0] = c_r; //coordenadas en col
 			keys.blocker_coord[c_b][1] = c_c; //coordenadas en row
-			//printf("--- %d %d -----\n", keys.blocker_coord[i][0], printf("%d\n", keys.blocker_coord[i][1]));
+			c_b++;
+			printf("%d: %d,%d\n", c_b, c_r, c_c);
 		}
+		i++;
+	}
+	i = 0;
+	while (i < 8)
+	{
+		printf("%d %d\n", keys.blocker_coord[i][0], keys.blocker_coord[c_b][1]);
 		i++;
 	}
 	return (keys);
@@ -147,10 +158,16 @@ struct s_noseganaperosegosa get_structure(char *buf, struct s_noseganaperosegosa
 	keys.blocker_count = 0;
 	//keys.row = ft_atoi(buf); //Meter atoi
 	keys.len_fl = len_first_line(buf);
-	keys.row = buf[0] - 48;
 	keys.emptier = get_emptier(buf, keys);
 	keys.blocker = get_blocker(buf, keys);
 	keys.filler = get_filler(buf, keys);
+	int	a;
+	while (i < (keys.len_fl - 3))
+	{
+		a = buf[i];
+		i++;
+	}
+	keys.row = a - 48;
 	while (buf[i])
 	{
 		if ((semaforo == 1 || semaforo == 2) && (buf[i] == keys.blocker))
@@ -169,9 +186,9 @@ struct s_noseganaperosegosa get_structure(char *buf, struct s_noseganaperosegosa
 
 void print_matrix(struct s_noseganaperosegosa keys)
 {
-	int x_Count;
-	int y_Count;
-	int	i;
+	int		x_Count;
+	int		y_Count;
+	int		i;
 
 	x_Count = 0;
 	y_Count = 0;
@@ -185,10 +202,9 @@ void print_matrix(struct s_noseganaperosegosa keys)
 			while (y_Count < keys.col)
 			{
 				if (x_Count == keys.blocker_coord[i][0] &&
-					y_Count + 1 == keys.blocker_coord[i][1])
+					y_Count == keys.blocker_coord[i][1])
 				{
 					ft_putchar(keys.blocker);
-					i++;
 				}
 				else
 					ft_putchar(keys.emptier);
@@ -227,5 +243,4 @@ void	open_file(char **argv)
 		print_matrix(get_structure(buf, keys)); //Creamos la estructura
 	}
 	close(fd); //Cerramos el archivo
-
 }
