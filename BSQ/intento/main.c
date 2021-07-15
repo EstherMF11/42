@@ -1,9 +1,6 @@
-#include <stdio.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include <stdlib.h>
+#include "structure.c"
 
-void	open_file(char *str[]);
+void	open_file(char **argv);
 
 int	main(int	argc, char **argv)
 {

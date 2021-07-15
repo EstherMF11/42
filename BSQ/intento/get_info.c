@@ -1,28 +1,45 @@
-#include <stdio.h>
+#include "structure.c"
 
+int	numb_bytes(char **argv)
+{
+	int		bytes;
+	char	buf;
+	int		fd;
+
+	fd = open(argv[1], O_RDONLY); //Abrimos el archivo con permiso solo lectura
+	bytes = 0;
+	while (read(fd, &buf, 1))
+		bytes++;
+	close(fd); //Cerramos el archivo
+	return (bytes);
+}
 int	len_first_line(char *buf)
 {
 	int	len;
 
 	len = 0;
-	while (buf[len])
+	while (buf[len] != '\n')
+	{
 		len++;
-	return(len);
+		if (buf[len] == '\n')
+			return (len);
+	}
+	return (0);
 }
 
 char	get_emptier(char *buf, struct s_noseganaperosegosa keys)
 {
-		return (buf[keys.len_fl - 3]);
+	return (buf[keys.len_fl - 3]);
 }
 
 char	get_blocker(char *buf, struct s_noseganaperosegosa keys)
 {
-		return (buf[keys.len_fl - 2]);
+	return (buf[keys.len_fl - 2]);
 }
 
 char	get_filler(char *buf, struct s_noseganaperosegosa keys)
 {
-		return (buf[keys.len_fl - 1]);
+	return (buf[keys.len_fl - 1]);
 }
 
 struct s_noseganaperosegosa	get_blocker_cord(char *buf, struct s_noseganaperosegosa keys)
@@ -42,7 +59,7 @@ struct s_noseganaperosegosa	get_blocker_cord(char *buf, struct s_noseganaperoseg
 		{
 			c_r++;
 		}
-		if (buf[i] != '\n')
+		else if (buf[i] != '\n')
 		{
 			c_c++;
 		}
@@ -52,17 +69,10 @@ struct s_noseganaperosegosa	get_blocker_cord(char *buf, struct s_noseganaperoseg
 		}
 		if (buf[i] == keys.blocker)
 		{
-			keys.blocker_coord[c_b][0] = c_c; //coordenadas en col
-			keys.blocker_coord[c_b][1] = c_r; //coordenadas en row
+			keys.blocker_coord[c_b][0] = c_r; //coordenadas en col
+			keys.blocker_coord[c_b][1] = c_c; //coordenadas en row
 			c_b++;
-			printf("%d: %d,%d\n", c_b, c_r, c_c);
 		}
-		i++;
-	}
-	i = 0;
-	while (i < 8)
-	{
-		printf("%d %d\n", keys.blocker_coord[i][0], keys.blocker_coord[c_b][1]);
 		i++;
 	}
 	return (keys);

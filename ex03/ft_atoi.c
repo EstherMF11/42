@@ -1,9 +1,22 @@
-#include <unistd.h>
+/*#include <stdio.h>
 
-void	ft_putchar(char c)
+int	ft_atoi(char *src);
+
+int	main(void)
 {
-	write(1, &c, 1);
-}
+	int	val;
+	int	val1;
+	char	str[20] = " ---+--+1234ab567";
+	char	str1[10] =  "903849";
+
+	val = ft_atoi(str);
+	printf("str = %d\n", val);
+	val1 = ft_atoi(str1);
+	printf("str1 = %d\nstr*2 = %d", val1, val1*2);
+
+	return (0);
+
+}*/
 
 int	ft_atoi(char *src)
 {

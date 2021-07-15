@@ -21,7 +21,7 @@ struct s_noseganaperosegosa
 int	main(int	argc, char **argv)
 {
 	if (argc < 2) //mínimo dos argumentos
-		write(1, "Reading Erorr\n", 6);
+		write(1, "Reading Erorr\n", 13);
 	else
 	{
 		open_file(argv);
@@ -120,7 +120,7 @@ struct s_noseganaperosegosa	get_blocker_cord(char *buf, struct s_noseganaperoseg
 		{
 			c_r++;
 		}
-		if (buf[i] != '\n')
+		else if (buf[i] != '\n')
 		{
 			c_c++;
 		}
@@ -133,14 +133,7 @@ struct s_noseganaperosegosa	get_blocker_cord(char *buf, struct s_noseganaperoseg
 			keys.blocker_coord[c_b][0] = c_r; //coordenadas en col
 			keys.blocker_coord[c_b][1] = c_c; //coordenadas en row
 			c_b++;
-			printf("%d: %d,%d\n", c_b, c_r, c_c);
 		}
-		i++;
-	}
-	i = 0;
-	while (i < 8)
-	{
-		printf("%d %d\n", keys.blocker_coord[i][0], keys.blocker_coord[c_b][1]);
 		i++;
 	}
 	return (keys);
@@ -202,9 +195,12 @@ void print_matrix(struct s_noseganaperosegosa keys)
 			while (y_Count < keys.col)
 			{
 				if (x_Count == keys.blocker_coord[i][0] &&
-					y_Count == keys.blocker_coord[i][1])
+					y_Count + 1 == keys.blocker_coord[i][1])
 				{
 					ft_putchar(keys.blocker);
+					if (x_Count == keys.blocker_coord[i][0] && y_Count + 1 == keys.blocker_coord[i][1])
+						ft_putchar(keys.filler);
+					i++;
 				}
 				else
 					ft_putchar(keys.emptier);
@@ -239,7 +235,6 @@ void	open_file(char **argv)
 		printf("Bytes number: %d - Content:\n%s\n", nr_bytes, buf);
 		printf("---------------------------------\n");
 		printf("EXTRACTED INFO FROM EXAMPLE_FILE:\n");
-		printf("MATRIX\n");
 		print_matrix(get_structure(buf, keys)); //Creamos la estructura
 	}
 	close(fd); //Cerramos el archivo

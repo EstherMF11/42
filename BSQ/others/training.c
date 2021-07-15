@@ -1,17 +1,10 @@
-#include <stdio.h>
-#include <unistd.h>
-#include <fcntl.h>
 #include <stdlib.h>
+#include <unistd.h>
+#include <sys/stat.h>
+#include <stdio.h>
+#include <fcntl.h>
 
-void						ft_putchar(char c);
-int							numb_bytes(char **argv);
-int							ft_atoi(char *src);
-int							len_first_line(char *buf);
-char						get_emptier(char *buf, struct s_noseganaperosegosa keys);
-char						get_blocker(char *buf, struct s_noseganaperosegosa keys);
-char						get_filler(char *buf, struct s_noseganaperosegosa keys);
-struct s_noseganaperosegosa	get_blocker_cord(char *buf, struct s_noseganaperosegosa keys);
-struct s_noseganaperosegosa	get_blocker_cord(char *buf, struct s_noseganaperosegosa keys);
+void	open_file(char **argv);
 
 struct s_noseganaperosegosa
 {
@@ -25,12 +18,135 @@ struct s_noseganaperosegosa
 	char		filler;
 };
 
+int	main(int	argc, char **argv)
+{
+	if (argc < 2) //mínimo dos argumentos
+		write(1, "Reading Erorr\n", 6);
+	else
+	{
+		open_file(argv);
+	}
+	return (0);
+}
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+int	numb_bytes(char **argv)
+{
+	int		bytes;
+	char	buf;
+	int		fd;
+
+	fd = open(argv[1], O_RDONLY); //Abrimos el archivo con permiso solo lectura
+	bytes = 0;
+	while (read(fd, &buf, 1))
+		bytes++;
+	close(fd); //Cerramos el archivo
+	return (bytes);
+}
+
+int	ft_atoi(char *src)
+{
+	int	i;
+	int	result;
+	int	signe;
+
+	i = 0;
+	result = 0;
+	signe = 1;
+	while (src[i] == ' ' || src[i] == '\f' || src[i] == '\t' || src[i] == '\v'
+		|| src[i] == '\r' || src[i] == '\n')
+		i++;
+	while (src[i] == '+' || src[i] == '-')
+	{
+		if (src[i] == '-')
+			signe = signe * -1;
+		i++;
+	}
+	while (src[i] >= 48 && src[i] <= 57)
+	{
+		result = result * 10 + (src[i] - 48);
+		i++;
+	}
+	return (result * signe);
+}
+
+int	len_first_line(char *buf)
+{
+	int	len;
+
+	len = 0;
+	while (buf[len] != '\n')
+	{
+		len++;
+		if (buf[len] == '\n')
+			return (len);
+	}
+	return (0);
+}
+
+char	get_emptier(char *buf, struct s_noseganaperosegosa keys)
+{
+	return (buf[keys.len_fl - 3]);
+}
+
+char	get_blocker(char *buf, struct s_noseganaperosegosa keys)
+{
+	return (buf[keys.len_fl - 2]);
+}
+
+char	get_filler(char *buf, struct s_noseganaperosegosa keys)
+{
+	return (buf[keys.len_fl - 1]);
+}
+
+struct s_noseganaperosegosa	get_blocker_cord(char *buf, struct s_noseganaperosegosa keys)
+{
+	int		i;
+	int		c_r;
+	int		c_c;
+	int		c_b;
+
+	c_r = 0;
+	c_c = 0;
+	c_b = 0;
+	i = keys.len_fl + 1; //para que empiece en en \n de la primera linea
+	while (buf[i])
+	{	
+		if (buf[i] == '\n')
+		{
+			c_r++;
+		}
+		else if (buf[i] != '\n')
+		{
+			c_c++;
+		}
+		if (buf[i + 1] == '\n')
+		{
+			c_c = 0;
+		}
+		if (buf[i] == keys.blocker)
+		{
+			keys.blocker_coord[c_b][0] = c_r; //coordenadas en col
+			keys.blocker_coord[c_b][1] = c_c; //coordenadas en row
+			c_b++;
+		}
+		i++;
+	}
+	return (keys);
+}
+
 struct s_noseganaperosegosa get_structure(char *buf, struct s_noseganaperosegosa keys)
 {
 	int	i;
 	int	semaforo; //como booleanos
+	char	*a;
 
 	i = 0;
+	a = "a";
 	semaforo = 0; //False (0)
 	keys.row = 0;
 	keys.col = 0;
@@ -40,13 +156,12 @@ struct s_noseganaperosegosa get_structure(char *buf, struct s_noseganaperosegosa
 	keys.emptier = get_emptier(buf, keys);
 	keys.blocker = get_blocker(buf, keys);
 	keys.filler = get_filler(buf, keys);
-	int	a;
 	while (i < (keys.len_fl - 3))
 	{
-		a = buf[i];
+		a[i] = buf[i];
 		i++;
 	}
-	keys.row = a - 48;
+	keys.row = atoi(a);
 	while (buf[i])
 	{
 		if ((semaforo == 1 || semaforo == 2) && (buf[i] == keys.blocker))
@@ -81,9 +196,10 @@ void print_matrix(struct s_noseganaperosegosa keys)
 			while (y_Count < keys.col)
 			{
 				if (x_Count == keys.blocker_coord[i][0] &&
-					y_Count == keys.blocker_coord[i][1])
+					y_Count + 1 == keys.blocker_coord[i][1])
 				{
 					ft_putchar(keys.blocker);
+					i++;
 				}
 				else
 					ft_putchar(keys.emptier);
@@ -97,13 +213,13 @@ void print_matrix(struct s_noseganaperosegosa keys)
 	}
 }
 
+/*Abrimos y leemos el archivo*/
 void	open_file(char **argv)
 {
 	int	fd;
 	int	nr_bytes;
 	char	*buf;
 	struct s_noseganaperosegosa	keys;
-	int	i;
 
 	nr_bytes = numb_bytes(argv);
 	buf = (char *) malloc(sizeof(char) * nr_bytes + 1);
@@ -117,7 +233,6 @@ void	open_file(char **argv)
 		printf("Bytes number: %d - Content:\n%s\n", nr_bytes, buf);
 		printf("---------------------------------\n");
 		printf("EXTRACTED INFO FROM EXAMPLE_FILE:\n");
-		printf("MATRIX\n");
 		print_matrix(get_structure(buf, keys)); //Creamos la estructura
 	}
 	close(fd); //Cerramos el archivo

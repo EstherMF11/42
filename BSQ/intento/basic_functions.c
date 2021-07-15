@@ -1,5 +1,4 @@
-#include <unistd.h>
-#include <stdio.h>
+#include "structure.c"
 
 void	ft_putchar(char c)
 {
