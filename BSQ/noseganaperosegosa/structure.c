@@ -1,10 +1,5 @@
 #ifndef FT_METADATA_H
-#define FT_METADATA_H
-#include <stdlib.h>
-#include <unistd.h>
-#include <sys/stat.h>
-#include <stdio.h>
-#include <fcntl.h>
+# define FT_METADATA_H
 
 struct s_noseganaperosegosa
 {

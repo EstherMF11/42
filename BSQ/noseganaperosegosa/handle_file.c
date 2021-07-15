@@ -1,13 +1,5 @@
 #include "structure.c"
-
-void	ft_putchar(char c);
-int	numb_bytes(char **argv);
-int	ft_atoi(char *src);
-int	len_first_line(char *buf);
-char	get_emptier(char *buf, struct s_noseganaperosegosa keys);
-char	get_blocker(char *buf, struct s_noseganaperosegosa keys);
-char	get_filler(char *buf, struct s_noseganaperosegosa keys);
-struct s_noseganaperosegosa	get_blocker_cord(char *buf, struct s_noseganaperosegosa keys);
+#include "header.h"
 
 struct s_noseganaperosegosa get_structure(char *buf, struct s_noseganaperosegosa keys)
 {
@@ -83,12 +75,12 @@ void print_matrix(struct s_noseganaperosegosa keys)
 /*Abrimos y leemos el archivo*/
 void	open_file(char **argv)
 {
-	int	fd;
-	int	nr_bytes;
-	char	*buf;
+	int							fd;
+	int							nr_bytes;
+	char						*buf;
 	struct s_noseganaperosegosa	keys;
-	int	i;
 
+	keys.row = 0;
 	nr_bytes = numb_bytes(argv);
 	buf = (char *) malloc(sizeof(char) * nr_bytes + 1);
 	fd = open(argv[1], O_RDONLY);

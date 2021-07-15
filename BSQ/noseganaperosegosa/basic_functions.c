@@ -1,4 +1,5 @@
 #include "structure.c"
+#include "header.h"
 
 void	ft_putchar(char c)
 {

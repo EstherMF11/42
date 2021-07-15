@@ -1,3 +1,4 @@
+#include "header.h"
 #include "structure.c"
 
 int	numb_bytes(char **argv)
