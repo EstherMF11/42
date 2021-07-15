@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_comb.c                                    :+:      :+:    :+:   */
+/*   ft_print_reverse_alphabet.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emoliner <emoliner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/02 09:59:56 by emoliner          #+#    #+#             */
-/*   Updated: 2021/07/15 15:34:02 by emoliner         ###   ########.fr       */
+/*   Created: 2021/06/28 08:53:50 by emoliner          #+#    #+#             */
+/*   Updated: 2021/07/02 09:55:03 by emoliner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,39 +16,22 @@
 #include <stdio.h>
 #include <unistd.h>
 
-/*void	ft_print_comb(void);
+/*void	ft_print_reverse_alphabet(void);
 
 int	main(void)
 {
-	ft_print_comb();
+	ft_print_reverse_alphabet();
 	return (0);
-<<<<<<< HEAD
 }
 */
-
-void	ft_print_comb(void)
+void	ft_print_reverse_alphabet(void)
 {
-	char	a;
-	char	b;
-	char	c;
+	char	rev_a;
 
-	a = '0' - 1;
-	while (a++ <= '9')
+	rev_a = 'z';
+	while (rev_a >= 'a')
 	{
-		b = a;
-		while (b++ < '8')
-		{
-			c = b;
-			while (c++ < '9')
-			{
-				write(1, &a, 1);
-				write(1, &b, 1);
-				write(1, &c, 1);
-				if (a == '7')
-					break ;
-				else
-					write(1, ", ", 2);
-			}
-		}
+		write(1, &rev_a, 1);
+		rev_a--;
 	}
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_comb.c                                    :+:      :+:    :+:   */
+/*   ft_div_mod.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emoliner <emoliner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/02 09:59:56 by emoliner          #+#    #+#             */
-/*   Updated: 2021/07/15 15:34:02 by emoliner         ###   ########.fr       */
+/*   Created: 2021/07/01 18:50:05 by emoliner          #+#    #+#             */
+/*   Updated: 2021/07/05 07:59:15 by emoliner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,41 +14,24 @@
 /* PUEDES QUITAR LOS COMENTARIOS DE LAS SIGUIENTES LÍNEAS*/
 
 #include <stdio.h>
-#include <unistd.h>
 
-/*void	ft_print_comb(void);
+/*void	ft_div_mod(int a, int b, int *div, int *mod);
 
 int	main(void)
 {
-	ft_print_comb();
-	return (0);
-<<<<<<< HEAD
-}
-*/
+	int	a;
+	int	b;
+	int	div;
+	int	mod;
 
-void	ft_print_comb(void)
+	a = 42;
+	b = 7;
+	ft_div_mod(a, b, &div, &mod);
+	printf("%d / %d = %d, mod= %d", a, b, div, mod);
+}*/
+
+void	ft_div_mod(int a, int b, int *div, int *mod)
 {
-	char	a;
-	char	b;
-	char	c;
-
-	a = '0' - 1;
-	while (a++ <= '9')
-	{
-		b = a;
-		while (b++ < '8')
-		{
-			c = b;
-			while (c++ < '9')
-			{
-				write(1, &a, 1);
-				write(1, &b, 1);
-				write(1, &c, 1);
-				if (a == '7')
-					break ;
-				else
-					write(1, ", ", 2);
-			}
-		}
-	}
+	*div = a / b;
+	*mod = a % b;
 }

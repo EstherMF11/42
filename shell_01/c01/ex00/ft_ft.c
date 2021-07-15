@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_comb.c                                    :+:      :+:    :+:   */
+/*   ft_ft.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emoliner <emoliner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/02 09:59:56 by emoliner          #+#    #+#             */
-/*   Updated: 2021/07/15 15:34:02 by emoliner         ###   ########.fr       */
+/*   Created: 2021/07/01 18:49:49 by emoliner          #+#    #+#             */
+/*   Updated: 2021/07/05 07:55:38 by emoliner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,41 +14,20 @@
 /* PUEDES QUITAR LOS COMENTARIOS DE LAS SIGUIENTES LÍNEAS*/
 
 #include <stdio.h>
-#include <unistd.h>
 
-/*void	ft_print_comb(void);
+/*void	ft_ft(int *nbr);
 
 int	main(void)
 {
-	ft_print_comb();
+	int	ptr;
+
+	ptr = 1;
+	ft_ft(&ptr);
+	printf("Valor: %d;\nDireccion puntero; %p", ptr, &ptr);
 	return (0);
-<<<<<<< HEAD
-}
-*/
+}*/
 
-void	ft_print_comb(void)
+void	ft_ft(int *nbr)
 {
-	char	a;
-	char	b;
-	char	c;
-
-	a = '0' - 1;
-	while (a++ <= '9')
-	{
-		b = a;
-		while (b++ < '8')
-		{
-			c = b;
-			while (c++ < '9')
-			{
-				write(1, &a, 1);
-				write(1, &b, 1);
-				write(1, &c, 1);
-				if (a == '7')
-					break ;
-				else
-					write(1, ", ", 2);
-			}
-		}
-	}
+	*nbr = 42;
 }

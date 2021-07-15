@@ -1,0 +1,8 @@
+ls -tUmp
+
+ls : Lista el contenido de un directorio
+
+-t : ordena por tiempo, el más nuevo primero
+-U : enumera entradas en orden de directorio
+-m : separa el contenido por comas
+-p : añade una barra a los directorios

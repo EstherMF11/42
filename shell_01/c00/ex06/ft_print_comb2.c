@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_comb.c                                    :+:      :+:    :+:   */
+/*   ft_print_comb2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emoliner <emoliner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/02 09:59:56 by emoliner          #+#    #+#             */
-/*   Updated: 2021/07/15 15:34:02 by emoliner         ###   ########.fr       */
+/*   Created: 2021/06/29 11:50:47 by emoliner          #+#    #+#             */
+/*   Updated: 2021/07/02 10:04:42 by emoliner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,39 +16,55 @@
 #include <stdio.h>
 #include <unistd.h>
 
-/*void	ft_print_comb(void);
+/*void	ft_print_comb2(void);
 
 int	main(void)
 {
-	ft_print_comb();
+	ft_print_comb2();
 	return (0);
-<<<<<<< HEAD
 }
 */
-
-void	ft_print_comb(void)
+void	ft_putchar(char d)
 {
-	char	a;
-	char	b;
-	char	c;
+	write(1, &d, 1);
+}
 
-	a = '0' - 1;
-	while (a++ <= '9')
+char	to_one_digit(char n, int return_digits)
+{
+	char	d;
+
+	if (return_digits == 1)
 	{
-		b = a;
-		while (b++ < '8')
+		d = n / 10 + '0';
+	}
+	else
+	{
+		d = n % 10 + '0';
+	}
+	return (d);
+}
+
+void	ft_print_comb2(void)
+{
+	char	ab;
+	char	cd;
+
+	ab = -1;
+	while (ab++ < 98)
+	{
+		cd = ab;
+		while (cd++ < 99)
 		{
-			c = b;
-			while (c++ < '9')
+			if (!(ab == 0 && cd == 1))
 			{
-				write(1, &a, 1);
-				write(1, &b, 1);
-				write(1, &c, 1);
-				if (a == '7')
-					break ;
-				else
-					write(1, ", ", 2);
+				ft_putchar(',');
+				ft_putchar(' ');
 			}
+			ft_putchar(to_one_digit(ab, 1));
+			ft_putchar(to_one_digit(ab, 0));
+			ft_putchar(' ');
+			ft_putchar(to_one_digit(cd, 1));
+			ft_putchar(to_one_digit(cd, 0));
 		}
 	}
 }

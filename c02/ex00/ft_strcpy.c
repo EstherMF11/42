@@ -1,54 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_comb.c                                    :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emoliner <emoliner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/02 09:59:56 by emoliner          #+#    #+#             */
-/*   Updated: 2021/07/15 15:34:02 by emoliner         ###   ########.fr       */
+/*   Created: 2021/07/05 13:16:23 by emoliner          #+#    #+#             */
+/*   Updated: 2021/07/08 11:38:16 by emoliner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*STPCPY: The stpcpy() and strcpy() functions copy the string src to dst 
+(including the terminating `\0' character.)*/
 
 /*PARA COMPILAR DIRECTAMENTE EL ARCHIVO Y COMPROBAR SI ESTÁ CORRECTO*/
 /* PUEDES QUITAR LOS COMENTARIOS DE LAS SIGUIENTES LÍNEAS*/
 
-#include <stdio.h>
-#include <unistd.h>
+/*#include <stdio.h>
 
-/*void	ft_print_comb(void);
+char	*ft_strcpy(char *dest, char *src);
 
 int	main(void)
 {
-	ft_print_comb();
-	return (0);
-<<<<<<< HEAD
-}
-*/
+	char	dest[] = "Go";
+	char	src[] = "Hello";
 
-void	ft_print_comb(void)
+	printf("src = %s --> dest = %s\n", src, dest);
+	ft_strcpy(dest, src);
+	printf("src = %s --> dest = %s", src, dest);
+}*/
+
+char	*ft_strcpy(char *dest, char *src)
 {
-	char	a;
-	char	b;
-	char	c;
+	int	i;
 
-	a = '0' - 1;
-	while (a++ <= '9')
+	i = 0;
+	while (src[i] != '\0')
 	{
-		b = a;
-		while (b++ < '8')
-		{
-			c = b;
-			while (c++ < '9')
-			{
-				write(1, &a, 1);
-				write(1, &b, 1);
-				write(1, &c, 1);
-				if (a == '7')
-					break ;
-				else
-					write(1, ", ", 2);
-			}
-		}
+		dest[i] = src[i];
+		i++;
 	}
+	dest[i] = '\0';
+	return (dest);
 }

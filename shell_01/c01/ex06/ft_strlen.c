@@ -1,54 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_comb.c                                    :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emoliner <emoliner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/02 09:59:56 by emoliner          #+#    #+#             */
-/*   Updated: 2021/07/15 15:34:02 by emoliner         ###   ########.fr       */
+/*   Created: 2021/07/01 18:48:53 by emoliner          #+#    #+#             */
+/*   Updated: 2021/07/05 08:01:56 by emoliner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*PARA COMPILAR DIRECTAMENTE EL ARCHIVO Y COMPROBAR SI ESTÁ CORRECTO*/
 /* PUEDES QUITAR LOS COMENTARIOS DE LAS SIGUIENTES LÍNEAS*/
 
-#include <stdio.h>
-#include <unistd.h>
+/*#include <stdio.h>
 
-/*void	ft_print_comb(void);
+int	ft_strlen(char *str);
 
 int	main(void)
 {
-	ft_print_comb();
-	return (0);
-<<<<<<< HEAD
-}
-*/
+	char	str[] = "Hello";
 
-void	ft_print_comb(void)
+	ft_strlen(str);
+	printf("%d", ft_strlen(str));
+}*/
+
+int	ft_strlen(char *str)
 {
-	char	a;
-	char	b;
-	char	c;
+	int	i;
 
-	a = '0' - 1;
-	while (a++ <= '9')
+	i = 0;
+	while (str[i] != '\0')
 	{
-		b = a;
-		while (b++ < '8')
-		{
-			c = b;
-			while (c++ < '9')
-			{
-				write(1, &a, 1);
-				write(1, &b, 1);
-				write(1, &c, 1);
-				if (a == '7')
-					break ;
-				else
-					write(1, ", ", 2);
-			}
-		}
+		i++;
 	}
+	return (i);
 }

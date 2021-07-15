@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_comb.c                                    :+:      :+:    :+:   */
+/*   ft_ultimate_div_mod.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emoliner <emoliner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/02 09:59:56 by emoliner          #+#    #+#             */
-/*   Updated: 2021/07/15 15:34:02 by emoliner         ###   ########.fr       */
+/*   Created: 2021/07/01 18:50:09 by emoliner          #+#    #+#             */
+/*   Updated: 2021/07/05 08:00:00 by emoliner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,41 +14,31 @@
 /* PUEDES QUITAR LOS COMENTARIOS DE LAS SIGUIENTES LÍNEAS*/
 
 #include <stdio.h>
-#include <unistd.h>
 
-/*void	ft_print_comb(void);
+/*void	ft_ultimate_div_mod(int *a, int *b);
 
 int	main(void)
 {
-	ft_print_comb();
-	return (0);
-<<<<<<< HEAD
-}
-*/
+	int	a;
+	int	b;
+	int	c;
+	int	d;
 
-void	ft_print_comb(void)
+	c = 42;
+	d = 7;
+	a = c;
+	b = d;
+	ft_ultimate_div_mod(&a, &b);
+	printf("%d / %d = %d, mod = %d", c, d, a, b);
+}*/
+
+void	ft_ultimate_div_mod(int *a, int *b)
 {
-	char	a;
-	char	b;
-	char	c;
+	int		div;
+	int		mod;
 
-	a = '0' - 1;
-	while (a++ <= '9')
-	{
-		b = a;
-		while (b++ < '8')
-		{
-			c = b;
-			while (c++ < '9')
-			{
-				write(1, &a, 1);
-				write(1, &b, 1);
-				write(1, &c, 1);
-				if (a == '7')
-					break ;
-				else
-					write(1, ", ", 2);
-			}
-		}
-	}
+	div = *a / *b;
+	mod = *a % *b;
+	*a = div;
+	*b = mod;
 }

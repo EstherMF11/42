@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_comb.c                                    :+:      :+:    :+:   */
+/*   ft_is_negative.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emoliner <emoliner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/02 09:59:56 by emoliner          #+#    #+#             */
-/*   Updated: 2021/07/15 15:34:02 by emoliner         ###   ########.fr       */
+/*   Created: 2021/06/28 08:54:29 by emoliner          #+#    #+#             */
+/*   Updated: 2021/07/02 10:00:19 by emoliner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,39 +16,22 @@
 #include <stdio.h>
 #include <unistd.h>
 
-/*void	ft_print_comb(void);
+/*void	ft_is_negative(int n);
 
 int	main(void)
 {
-	ft_print_comb();
+	ft_is_negative(0);
 	return (0);
-<<<<<<< HEAD
 }
 */
-
-void	ft_print_comb(void)
+void	ft_is_negative(int n)
 {
-	char	a;
-	char	b;
-	char	c;
-
-	a = '0' - 1;
-	while (a++ <= '9')
+	if (n >= 0)
 	{
-		b = a;
-		while (b++ < '8')
-		{
-			c = b;
-			while (c++ < '9')
-			{
-				write(1, &a, 1);
-				write(1, &b, 1);
-				write(1, &c, 1);
-				if (a == '7')
-					break ;
-				else
-					write(1, ", ", 2);
-			}
-		}
+		write(1, "P", 1);
+	}
+	else
+	{
+		write(1, "N", 1);
 	}
 }

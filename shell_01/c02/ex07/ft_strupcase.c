@@ -1,54 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_comb.c                                    :+:      :+:    :+:   */
+/*   ft_strupcase.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emoliner <emoliner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/02 09:59:56 by emoliner          #+#    #+#             */
-/*   Updated: 2021/07/15 15:34:02 by emoliner         ###   ########.fr       */
+/*   Created: 2021/07/06 11:49:23 by emoliner          #+#    #+#             */
+/*   Updated: 2021/07/08 12:04:15 by emoliner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*PARA COMPILAR DIRECTAMENTE EL ARCHIVO Y COMPROBAR SI ESTÁ CORRECTO*/
 /* PUEDES QUITAR LOS COMENTARIOS DE LAS SIGUIENTES LÍNEAS*/
 
-#include <stdio.h>
-#include <unistd.h>
+/*#include <stdio.h>
 
-/*void	ft_print_comb(void);
+char	*ft_strupcase(char *str);
 
 int	main(void)
 {
-	ft_print_comb();
+	char	str1[] = "hello";
+	char	str2[] = "123UnpasitoPalanteMaria123";
+	char	str3[] = "";
+
+	ft_strupcase(str1);
+	printf("Result: %s - Expected: HELLO\n", str1);
+	ft_strupcase(str2);
+	printf("Result: %s - Expected: 123UNPASITOPALANTEMARIA123\n", str2);
+	ft_strupcase(str3);
+	printf("Result: %s - Expected: \n", str3);
 	return (0);
-<<<<<<< HEAD
-}
-*/
+}*/
 
-void	ft_print_comb(void)
+char	*ft_strupcase(char *str)
 {
-	char	a;
-	char	b;
-	char	c;
+	int		a;
 
-	a = '0' - 1;
-	while (a++ <= '9')
+	a = 0;
+	while (str[a] != '\0')
 	{
-		b = a;
-		while (b++ < '8')
+		if (str[a] >= 'a' && str[a] <= 'z')
 		{
-			c = b;
-			while (c++ < '9')
-			{
-				write(1, &a, 1);
-				write(1, &b, 1);
-				write(1, &c, 1);
-				if (a == '7')
-					break ;
-				else
-					write(1, ", ", 2);
-			}
+			str[a] = str[a] - 32;
 		}
+		a++;
 	}
+	return (str);
 }

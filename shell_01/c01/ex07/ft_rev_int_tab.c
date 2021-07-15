@@ -1,54 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_comb.c                                    :+:      :+:    :+:   */
+/*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emoliner <emoliner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/02 09:59:56 by emoliner          #+#    #+#             */
-/*   Updated: 2021/07/15 15:34:02 by emoliner         ###   ########.fr       */
+/*   Created: 2021/07/02 07:38:01 by emoliner          #+#    #+#             */
+/*   Updated: 2021/07/05 08:53:40 by emoliner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*PARA COMPILAR DIRECTAMENTE EL ARCHIVO Y COMPROBAR SI ESTÁ CORRECTO*/
 /* PUEDES QUITAR LOS COMENTARIOS DE LAS SIGUIENTES LÍNEAS*/
 
-#include <stdio.h>
-#include <unistd.h>
+/*#include <stdio.h>
 
-/*void	ft_print_comb(void);
+void	ft_rev_int_tab(int *tab, int size);
 
 int	main(void)
 {
-	ft_print_comb();
+	int	tab[] = {4, 2, 9, 3};
+	int	j;
+	int	size;
+
+	size = 4;
+	ft_rev_int_tab(tab, size);
+	for (j = 0; j < size; j++)
+		printf("%d ", tab[j]);
 	return (0);
-<<<<<<< HEAD
-}
-*/
+}*/
 
-void	ft_print_comb(void)
+void	ft_rev_int_tab(int *tab, int size)
 {
-	char	a;
-	char	b;
-	char	c;
+	int	size2;
+	int	i;
+	int	swap;
 
-	a = '0' - 1;
-	while (a++ <= '9')
+	i = 0;
+	size2 = size - 1;
+	while (i < size2)
 	{
-		b = a;
-		while (b++ < '8')
-		{
-			c = b;
-			while (c++ < '9')
-			{
-				write(1, &a, 1);
-				write(1, &b, 1);
-				write(1, &c, 1);
-				if (a == '7')
-					break ;
-				else
-					write(1, ", ", 2);
-			}
-		}
+		swap = tab[i];
+		tab[i] = tab[size2];
+		tab[size2] = swap;
+		i++;
+		size2--;
 	}
 }

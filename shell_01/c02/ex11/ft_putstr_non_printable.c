@@ -1,54 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_comb.c                                    :+:      :+:    :+:   */
+/*   ft_putstr_non_printable.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emoliner <emoliner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/02 09:59:56 by emoliner          #+#    #+#             */
-/*   Updated: 2021/07/15 15:34:02 by emoliner         ###   ########.fr       */
+/*   Created: 2021/07/07 10:09:43 by emoliner          #+#    #+#             */
+/*   Updated: 2021/07/08 12:21:39 by emoliner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/* Caracteres imprimiblles ascii desde el 32 hasta el 126*/
 
 /*PARA COMPILAR DIRECTAMENTE EL ARCHIVO Y COMPROBAR SI ESTÁ CORRECTO*/
 /* PUEDES QUITAR LOS COMENTARIOS DE LAS SIGUIENTES LÍNEAS*/
 
+/*#include <unistd.h>
 #include <stdio.h>
-#include <unistd.h>
 
-/*void	ft_print_comb(void);
+
+void	ft_putstr_non_printable(char *str);
 
 int	main(void)
 {
-	ft_print_comb();
+	char	str[] = "Coucou\ttu vas\n bien\v ?";
+
+	ft_putstr_non_printable(str);
 	return (0);
-<<<<<<< HEAD
-}
-*/
+}*/
 
-void	ft_print_comb(void)
+void	ft_putchar(char a)
 {
-	char	a;
-	char	b;
-	char	c;
+	write(1, &a, 1);
+}
 
-	a = '0' - 1;
-	while (a++ <= '9')
+void	ft_putstr_non_printable(char *str)
+{
+	int		a;
+
+	a = 0;
+	while (str[a])
 	{
-		b = a;
-		while (b++ < '8')
+		if (str[a] >= 32)
 		{
-			c = b;
-			while (c++ < '9')
-			{
-				write(1, &a, 1);
-				write(1, &b, 1);
-				write(1, &c, 1);
-				if (a == '7')
-					break ;
-				else
-					write(1, ", ", 2);
-			}
+			ft_putchar(str[a]);
 		}
+		else
+		{
+			ft_putchar('\\');
+			ft_putchar("012345679abcdef"[str[a] / 16]);
+			ft_putchar("012345679abcdef"[str[a] % 16]);
+		}
+		a++;
 	}
 }
