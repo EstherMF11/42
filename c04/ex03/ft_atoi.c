@@ -1,4 +1,4 @@
-#include <stdio.h>
+/*#include <stdio.h>
 
 int	ft_atoi(char *src);
 
@@ -16,7 +16,7 @@ int	main(void)
 
 	return (0);
 
-}
+}*/
 
 int	ft_atoi(char *src)
 {
