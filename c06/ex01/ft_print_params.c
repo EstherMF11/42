@@ -15,7 +15,6 @@ void ft_putstr(char *str)
 int main(int argc, char **argv)
 {
 	int j;
-	int i;
 
 	j = 1;
 	while (j < argc)
